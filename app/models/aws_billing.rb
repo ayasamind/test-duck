@@ -1,0 +1,2 @@
+class AwsBilling < ApplicationRecord
+end

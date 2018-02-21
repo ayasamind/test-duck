@@ -1,0 +1,2 @@
+class AwsReservedRdsInstance < ApplicationRecord
+end
