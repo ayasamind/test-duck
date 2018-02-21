@@ -1,2 +1,0 @@
-class AwsPriceListRdsProduct < ApplicationRecord
-end

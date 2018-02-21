@@ -1,2 +1,0 @@
-class AwsPriceListRdsTermOnDemand < ApplicationRecord
-end

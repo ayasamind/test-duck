@@ -1,2 +1,0 @@
-class AwsBillingDetailedLineItem < ApplicationRecord
-end

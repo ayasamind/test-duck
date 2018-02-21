@@ -1,2 +1,0 @@
-class CostReport < ApplicationRecord
-end
