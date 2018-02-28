@@ -1,4 +1,4 @@
-class AwsaccountsController < ApplicationController
+class AwsAccountsController < ApplicationController
   def index
     @aws_accounts = AwsAccount.order("id");
   end
