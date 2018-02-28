@@ -4,7 +4,7 @@
       <ul class="sidebar-menu tree" data-widget="tree">
         <li class="header">メニュー</li>
         <li>
-          <router-link to='awsaccounts' class='logo'>
+          <router-link to='/' class='logo'>
             アカウント一覧
           </router-link>
         </li>

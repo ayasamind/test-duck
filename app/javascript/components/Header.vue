@@ -1,7 +1,7 @@
 <template>
   <header class="main-header">
     <!-- Logo -->
-    <router-link to='awsaccounts' class='logo'>
+    <router-link to='/' class='logo'>
       <span class="logo-lg">
         Captain-Duck
       </span>
