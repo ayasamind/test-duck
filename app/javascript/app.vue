@@ -1,22 +1,26 @@
+
+<!-- 全体のテンプレートファイル -->
 <template>
-  <div id="app">
-    <p>{{ message }}</p>
-  </div>
+<div id="app">
+    <div class="wrapper">
+      <Header></Header>
+      <Sidebar></Sidebar>
+      <div class="content-wrapper">
+        <router-view></router-view>
+      </div>
+    </div>
+</div>
 </template>
 
 <script>
+import Header from 'components/Header'
+import Sidebar from 'components/Sidebar'
+
 export default {
-  data: function () {
-    return {
-      message: "Hello Vue!"
-    }
+  name: 'app',
+  components: {
+    Header,
+    Sidebar,
   }
 }
 </script>
-
-<style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
-</style>
