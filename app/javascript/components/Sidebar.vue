@@ -5,12 +5,14 @@
         <li class="header">メニュー</li>
         <li>
           <router-link to='/' class='logo'>
-            アカウント一覧
+            <i class="fa fa-list-ul"></i>
+            <span>アカウント一覧</span>
           </router-link>
         </li>
         <li>
           <router-link to='CreateAwsAccounts' class='logo'>
-            アカウント新規作成
+            <i class="fa fa-plus"></i>
+            <span>アカウント新規作成</span>
           </router-link>
         </li>
       </ul>
