@@ -6,10 +6,12 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application' %>
+    <%= javascript_pack_tag 'application' %>
   </head>
 
-  <body>
- <%= yield %>
-  
+  <body class="skin-blue sidebar-mini">
+    <%= javascript_pack_tag 'header' %>
+    <%= yield %>
   </body>
 </html>
