@@ -41,7 +41,7 @@ import ShowAwsAccount from './ShowAwsAccount'
 import axios from 'axios'
 export default{
   name : 'Table',
-// Rails側から受け取ったデータをレンダリング
+  // Rails側から受け取ったデータをレンダリング
   data() {
     return {
       awsAccounts: {},
@@ -50,7 +50,7 @@ export default{
 
   methods: {
     getAccounts() {
-      axios.get('aws_accounts/getAccounts')
+      axios.get('aws_accounts/get_accounts')
       .then(res => {
         this.awsAccounts = res.data;
       });

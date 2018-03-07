@@ -3,7 +3,7 @@ class AwsAccountsController < ApplicationController
 
   end
 
-  def getAccounts
+  def get_accounts
     @aws_accounts = AwsAccount.order("id");
     render json: @aws_accounts
   end

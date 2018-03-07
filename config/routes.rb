@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :aws_accounts do
     collection do
-      get 'getAccounts'
+      get 'get_accounts'
     end
   end
 end
