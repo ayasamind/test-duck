@@ -1,16 +1,17 @@
 <template>
   <div>
     <div>
-      アカウント一覧
+      <va-table></va-table>
     </div>
-    <router-link to='createawsaccounts'>
-      CreateAwsAccounts
-    </router-link>
   </div>
 </template>
 
 <script>
+import VATable from './Table.vue'
 export default {
   name: 'AwsAccounts',
+  components: {
+    'va-table' : VATable
+  }
 }
 </script>
