@@ -6,13 +6,25 @@
 * System dependencies
   - npm 3.10.10
   - yarn 1.3.2
+  
+## Development
 
-* Commands
-    ```
-     rails s
-    ```
+### Setup
 
-    Other Terminal
-    ```
-     bin/webpack-dev-server
-    ```
+```
+# ruby gems
+$ bundle install --path vendor/bundle
+
+# npm packages
+$ yarn install
+
+# db
+# bundle exec rails db:create db:migrate
+```
+
+
+### Dev Server
+
+```
+$ bundle exec foreman start
+```
