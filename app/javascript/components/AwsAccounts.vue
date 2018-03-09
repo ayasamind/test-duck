@@ -1,17 +1,21 @@
 <template>
   <div>
     <div>
-      <va-table></va-table>
+        <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
-import VATable from './Table.vue'
+import store from '../vuex/store'
 export default {
-  name: 'AwsAccounts',
-  components: {
-    'va-table' : VATable
-  }
+    name: 'AwsAccounts',
+    beforeRouteEnter(route, redirect, next) {
+        store.dispatch('awsaccounts/load').then(() => {
+            setTimeout(() => {
+                next()
+            }, 500)
+        })
+    },
 }
 </script>
