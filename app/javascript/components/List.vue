@@ -42,6 +42,9 @@ export default {
     name : 'List',
     computed: {
         orderList() {return this.$store.getters['awsaccounts/orderList']}
-    }
+    },
+    beforeMount() {
+        this.$store.dispatch('awsaccounts/load')
+    },
 }
 </script>
