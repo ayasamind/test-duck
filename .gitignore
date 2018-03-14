@@ -24,3 +24,4 @@ yarn-debug.log*
 .yarn-integrity
 
 config/webpacker.yml
+Procfile
