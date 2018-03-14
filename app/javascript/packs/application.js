@@ -6,21 +6,5 @@
 //
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
-
-import Vue from 'vue'
-import App from '../app.vue'
-import Vuex from 'vuex'
-import axios from 'axios'
-import VueRouter from 'vue-router/dist/vue-router'
 import 'vue2-admin-lte/src/lib/css'
 import 'vue2-admin-lte/src/lib/script'
-
-//ルーティング設定ファイルの読み込み
-import routes from './routes'
-Vue.use(VueRouter)
-const router = new VueRouter({
-  routes
-})
-const app = new Vue({
-  router
-})

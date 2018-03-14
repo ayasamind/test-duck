@@ -23,7 +23,7 @@
             <th>ユーザー名</th>
             <th>アクション</th>
           </tr>
-          <tr v-for='item in awsAccounts'>
+          <tr v-for='item in orderList'>
             <td>{{item.account_id}}</td>
             <td>{{item.display_name}}</td>
             <td>{{item.category}}</td>
@@ -38,26 +38,13 @@
 
 <script>
 import ShowAwsAccount from './ShowAwsAccount'
-import axios from 'axios'
-export default{
-  name : 'Table',
-  // Rails側から受け取ったデータをレンダリング
-  data() {
-    return {
-      awsAccounts: {},
-    };
-  },
-
-  methods: {
-    getAccounts() {
-      axios.get('aws_accounts/get_accounts')
-      .then(res => {
-        this.awsAccounts = res.data;
-      });
+export default {
+    name : 'List',
+    computed: {
+        orderList() {return this.$store.getters['awsaccounts/orderList']}
     },
-  },
-  mounted() {
-    this.getAccounts();
-  },
+    beforeMount() {
+        this.$store.dispatch('awsaccounts/load')
+    },
 }
 </script>
