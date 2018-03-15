@@ -49,7 +49,8 @@ group :development, :test do
   gem 'rubocop'
   gem 'brakeman'
   gem 'bundler-audit'
-  gem 'rack-mini-profiler'
+  # 入れたいけど、SPAでのデザインが崩れるので一旦コメントアウト＞だれか調整試みてー
+  # gem 'rack-mini-profiler'
   gem 'bullet'
 end
 
