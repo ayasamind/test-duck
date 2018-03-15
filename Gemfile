@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'therubyracer'
 
 gem 'config' # 定数管理
+gem 'exnum' # enum i18n対応
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
