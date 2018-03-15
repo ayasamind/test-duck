@@ -1,2 +1,2 @@
-rails: bin/rails s -b 0.0.0.0
+rails: bundle exec rails s
 webpack: bin/webpack-dev-server
