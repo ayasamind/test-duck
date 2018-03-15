@@ -1,0 +1,31 @@
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# enum系のパラメータ
+#
+# - enum.[model名キャメルケース単数形].[カラム名].[状態名] : 値
+# - enum.[model名キャメルケース単数形].[カラム名].[状態名] : {val: 値, その他パラメータ...}
+# のいずれか。
+# modelのenumにセットするときは、
+# - exnum [カラム名]: Settings.enum.[model名キャメルケース単数形].[カラム名].[状態名]
+# とすればOK。
+# 表示名はI18nファイルに書くこと。
+#  -> config/locales/translation_ja.yml
+enum:
+  aws_account:
+    category:
+      single:
+        val: 1
+      consolidated:
+        val: 2
+      reseller:
+        val: 3
+      resold:
+        val: 4
+      family:
+        val: 5
+    status:
+      preparing:
+        val: 10
+      active:
+        val: 20
+      suspended:
+        val: 100
