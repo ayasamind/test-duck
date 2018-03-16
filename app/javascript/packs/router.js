@@ -21,7 +21,7 @@ const routes = [
               path: ':id',
               name: 'ShowAwsAccount',
               component: ShowAwsAccount,
-              props: route => ({ id: Number(route.params.id)})
+              props: true
           },
           {
               path: 'new',
@@ -30,12 +30,12 @@ const routes = [
           }
       ]
   },
-
 ]
 
 import VueRouter from 'vue-router/dist/vue-router'
 Vue.use(VueRouter)
 const router = new VueRouter({
+    // mode: 'history',
     routes
 })
 

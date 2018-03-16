@@ -28,7 +28,16 @@
             <td>{{item.display_name}}</td>
             <td>{{item.category}}</td>
             <td>{{item.user_id}}</td>
-            <td><router-link v-bind:to="{ name: 'ShowAwsAccount', params : {id: item.account_id }}">詳細</router-link></td>
+            <td class='row'>
+                <div class='col-md-4'>
+                    <router-link v-bind:to="{ name: 'ShowAwsAccount', params : {id: `${item.id}` }}">
+                        <va-button name="詳細" size='1'></va-button>
+                    </router-link>
+                </div>
+                <div class='col-md-4'>
+                    <va-button v-on:click.native.prevent="onDelete(item.id)" name='削除' ></va-button>
+                </div>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -38,10 +47,20 @@
 
 <script>
 import ShowAwsAccount from './ShowAwsAccount'
+import VAButton from 'vue2-admin-lte/src/components/VAButton'
 export default {
     name : 'List',
+    components: {
+        'va-button' : VAButton,
+    },
     computed: {
         orderList() {return this.$store.getters['awsaccounts/orderList']}
+    },
+    methods: {
+        onDelete(id){
+            this.$store.dispatch('awsaccounts/deleteAwsAccount', id).then(() => {
+            })
+        }
     },
     beforeMount() {
         this.$store.dispatch('awsaccounts/load')

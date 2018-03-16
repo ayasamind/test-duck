@@ -1,45 +1,59 @@
 <template>
-  <div>
-    <p>{{awsaccount.account_name}}</p>
-    <ul>
-      <li>{{awsaccount.account_id}}</li>
-      <li>{{awsaccount.account_name}}</li>
-      <li>{{awsaccount.category}}</li>
-      <li>{{awsaccount.created_at}}</li>
-      <li>{{awsaccount.deleted_at}}</li>
-      <li>{{awsaccount.display_name}}</li>
-      <li>{{awsaccount.email}}</li>
-      <li>{{awsaccount.id}}</li>
-      <li>{{awsaccount.payer_account_id}}</li>
-      <li>{{awsaccount.purpose}}</li>
-      <li>{{awsaccount.status}}</li>
-      <li>{{awsaccount.updated_at}}</li>
-      <li>{{awsaccount.user_id}}</li>
-    </ul>
-  </div>
+    <div class='row'>
+        <div class='col-md-1'></div>
+        <div class='col-md-10'>
+            <div class='box box-primary'>
+              <div class='bod-header with-border'>
+              </div>
+              <div class='box-body'>
+                <strong>アカウントID</strong>
+                    <p class='text-muted'>{{orderAccount.account_id}}</p>
+                <strong>アカウント名</strong>
+                    <p class='text-muted'>{{orderAccount.account_name}}</p>
+                <strong>カテゴリー</strong>
+                    <p class='text-muted'>{{orderAccount.category}}</p>
+                <strong>作成日</strong>
+                    <p class='text-muted'>{{orderAccount.created_at}}</p>
+                <strong>削除日</strong>
+                    <p class='text-muted'>{{orderAccount.deleted_at}}</p>
+                <strong>表示名</strong>
+                    <p class='text-muted'>{{orderAccount.display_name}}</p>
+                <strong>メールアドレス</strong>
+                    <p class='text-muted'>{{orderAccount.email}}</p>
+                <strong>決済者ID</strong>
+                    <p class='text-muted'>{{orderAccount.payer_account_id}}</p>
+                <strong>目的</strong>
+                    <p class='text-muted'>{{orderAccount.purpose}}</p>
+                <strong>ステータス</strong>
+                    <p class='text-muted'>{{orderAccount.status}}</p>
+                <strong>更新日</strong>
+                    <p class='text-muted'>{{orderAccount.updated_at}}</p>
+                <strong>ユーザーID</strong>
+                    <p class='text-muted'>{{orderAccount.user_id}}</p>
+              </div>
+            </div>
+        </div>
+    </div>
 </template>
+<style>
+.box-body {
+    margin-top: 10px;
+}
+</style>
 <script>
-import axios from 'axios'
 export default{
-  name : 'ShowAwsAccount',
-  // Rails側から受け取ったデータをレンダリング
-  data() {
-    return {
-      awsaccount: {},
-    };
-  },
-
-  methods: {
-    getAccounts() {
-      axios.get('aws_accounts/1')
-      .then(res => {
-        console.log(res.data);
-        this.awsaccount = res.data;
-      });
+    name: 'ShowAwsAccount',
+    props: { id: String },
+    computed: {
+        orderAccount(){return this.$store.getters['awsaccounts/orderAccount']}
     },
-  },
-  mounted() {
-    this.getAccounts();
-  },
+    watch: {
+        id: {
+            handler(id) {
+                this.$store.dispatch('awsaccounts/getAwsAccount', this.id)
+            },
+            immediate: true
+        }
+    },
 }
 </script>
