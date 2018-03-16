@@ -36,12 +36,22 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'therubyracer'
 
+gem 'config' # 定数管理
+gem 'exnum' # enum i18n対応
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+
+  gem 'rubocop'
+  gem 'brakeman'
+  gem 'bundler-audit'
+  # 入れたいけど、SPAでのデザインが崩れるので一旦コメントアウト＞だれか調整試みてー
+  # gem 'rack-mini-profiler'
+  gem 'bullet'
 end
 
 group :development do
@@ -51,8 +61,12 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-
   gem 'foreman'
+
+  # For Debug
+  gem 'pry-rails'
+  gem 'pry-stack_explorer'
+  gem 'better_errors'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

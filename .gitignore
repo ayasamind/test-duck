@@ -6,6 +6,10 @@
 
 # Ignore bundler config.
 /.bundle
+vendor/bundle
+
+# For IDE
+.idea
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -24,3 +28,7 @@ yarn-debug.log*
 .yarn-integrity
 
 config/webpacker.yml
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
