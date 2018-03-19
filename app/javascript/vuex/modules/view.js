@@ -1,10 +1,10 @@
 export default {
   namespaced: true,
   state: {
-    loading: false
+    loading: false,
   },
   mutations: {
-    start(state) { state.loading = true },
-    end(state) { state.loading = false }
-  }
-}
+    start(state) { state.loading = true; },
+    end(state) { state.loading = false; },
+  },
+};
