@@ -16,7 +16,7 @@ class AwsAccountsController < ApplicationController
   def new
     @aws_account = AwsAccount.new
     if @aws_account.save
-      redirect_to 'get_accounts'
+      render 'get_accounts'
     else
       render json: @aws_account
     end
