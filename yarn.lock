@@ -7091,9 +7091,9 @@ vue-template-es2015-compiler@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
 
-vue2-admin-lte@^0.4.3:
+vue2-admin-lte@ayasamind/vue2-admin-lte:
   version "0.4.3"
-  resolved "https://registry.yarnpkg.com/vue2-admin-lte/-/vue2-admin-lte-0.4.3.tgz#8696658628059c1ff625b106087e33b5e3bb177b"
+  resolved "https://codeload.github.com/ayasamind/vue2-admin-lte/tar.gz/5f48a7ff7c792204ddcfccf7c359ae4b164dc824"
   dependencies:
     admin-lte "^2.3.11"
     axios "^0.15.3"
