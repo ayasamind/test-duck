@@ -5,7 +5,11 @@
 
       <div class="box-tools">
         <div class="input-group input-group-sm" style="width: 150px;">
-          <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+          <input
+            type="text"
+            name="table_search"
+            class="form-control pull-right"
+            placeholder="Search">
 
           <div class="input-group-btn">
             <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
@@ -23,20 +27,27 @@
             <th>ユーザー名</th>
             <th>アクション</th>
           </tr>
-          <tr v-for='item in orderList'>
-            <td>{{item.account_id}}</td>
-            <td>{{item.display_name}}</td>
-            <td>{{item.category}}</td>
-            <td>{{item.user_id}}</td>
+          <tr v-bind:key='accounts.id' v-for='accounts in orderList'>
+            <td>{{accounts.account_id}}</td>
+            <td>{{accounts.display_name}}</td>
+            <td>{{accounts.category}}</td>
+            <td>{{accounts.user_id}}</td>
             <td class='row'>
-                <div class='col-md-4'>
-                    <router-link v-bind:to="{ name: 'ShowAwsAccount', params : {id: `${item.id}` }}">
-                        <va-button name="詳細" size='1'></va-button>
-                    </router-link>
-                </div>
-                <div class='col-md-4'>
-                    <va-button v-on:click.native.prevent="onDelete(item.id)" name='削除' ></va-button>
-                </div>
+              <div class='col-md-4'>
+                <router-link
+                  v-bind:to="{
+                    name: 'ShowAwsAccount',
+                    params: {
+                      id: `${accounts.id}`
+                    }
+                  }
+                ">
+                  <va-button name="詳細" size='1'></va-button>
+                </router-link>
+              </div>
+              <div class='col-md-4'>
+                <va-button v-on:click.native.prevent="onDelete(accounts.id)" name='削除' ></va-button>
+              </div>
             </td>
           </tr>
         </tbody>
@@ -46,24 +57,24 @@
 </template>
 
 <script>
-import ShowAwsAccount from './ShowAwsAccount'
-import VAButton from 'vue2-admin-lte/src/components/VAButton'
+import VAButton from 'vue2-admin-lte/src/components/VAButton.vue';
+
 export default {
-    name : 'List',
-    components: {
-        'va-button' : VAButton,
+  name: 'List',
+  components: {
+    'va-button': VAButton,
+  },
+  computed: {
+    orderList() { return this.$store.getters['awsaccounts/orderList']; },
+  },
+  methods: {
+    onDelete(id) {
+      this.$store.dispatch('awsaccounts/deleteAwsAccount', id).then(() => {
+      });
     },
-    computed: {
-        orderList() {return this.$store.getters['awsaccounts/orderList']}
-    },
-    methods: {
-        onDelete(id){
-            this.$store.dispatch('awsaccounts/deleteAwsAccount', id).then(() => {
-            })
-        }
-    },
-    beforeMount() {
-        this.$store.dispatch('awsaccounts/load')
-    },
-}
+  },
+  beforeMount() {
+    this.$store.dispatch('awsaccounts/load');
+  },
+};
 </script>

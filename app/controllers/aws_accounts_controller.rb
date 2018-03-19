@@ -16,7 +16,7 @@ class AwsAccountsController < ApplicationController
   def new
     @aws_account = AwsAccount.new
     if @aws_account.save
-      render 'get_accounts'
+      redirect_to 'get_accounts'
     else
       render json: @aws_account
     end
@@ -28,7 +28,7 @@ class AwsAccountsController < ApplicationController
 
   def destroy
     AwsAccount.find(params[:id]).destroy
-    @aws_accounts = AwsAccount.order("id");
-    render json: @aws_accounts
+    @message = 'success'
+    render json: @message
   end
 end
