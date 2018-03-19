@@ -1,0 +1,67 @@
+---
+ja:
+  systemname:
+    full: Captain Duck
+    short: C-Duck
+  activerecord:
+    enum:
+      user:
+        role:
+          general: 一般ユーザー
+          admin:   管理者
+      certificate:
+        certificate_type:
+          solutions_architect: ソリューションアーキテクト
+          sysops_admin: SysOps アドミニストレーター
+          developer: デベロッパー
+          devops_engineer: DevOps エンジニア
+        level:
+          associate:    アソシエイト
+          professional: プロフェッショナル
+      aws_account:
+        category:
+          single: 単独決済アカウント
+          consolidated: 一括決済アカウント
+          reseller: リセラーアカウント
+          resold: リソールドアカウント
+          family: ファミリーアカウント
+        status:
+          preparing: 準備中
+          active: 利用中
+          suspended: 停止中
+    models:
+      user: ユーザー
+      certificate: 資格情報
+      aws_account: AWSアカウント
+    attributes:
+      user:
+        login_id: ログインID
+        name:     ユーザー名
+        email:    Email
+        role:     権限
+        password: パスワード
+        password_confirmation: パスワード確認用
+      certificate:
+        certificate_type:   種類
+        level:              レベル
+        user_id:            ユーザー
+        get_certificate_at: 取得日
+        end_certificate_at: 完了日
+      aws_account:
+        account_id : アカウントID
+        account_name : アカウント名
+        email : メールアドレス
+        display_name : 表示名
+        payer_account_id : 一括決済アカウント
+        category : カテゴリ
+        status: ステータス
+        user_id : アカウント担当者
+        purpose : 用途
+  #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  # メッセージ類
+  messages:
+    # 通知
+    notice:
+      added:   "%{model}を登録しました"
+      updated: "%{model}を更新しました"
+      deleted: "%{model}を削除しました"

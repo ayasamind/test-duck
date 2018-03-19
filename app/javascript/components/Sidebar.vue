@@ -10,7 +10,7 @@
           </router-link>
         </li>
         <li>
-          <router-link to='CreateAwsAccounts' class='logo'>
+          <router-link v-bind:to="{name: 'CreateAwsAccounts'}" class='logo'>
             <i class="fa fa-plus"></i>
             <span>アカウント新規作成</span>
           </router-link>
@@ -23,5 +23,5 @@
 <script>
 export default {
   name: 'Sidebar',
-}
+};
 </script>
