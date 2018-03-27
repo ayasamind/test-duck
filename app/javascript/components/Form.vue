@@ -8,7 +8,7 @@
       placeholder='アカウントID'
       ></va-input>
     <va-input
-      type='text'
+      type='email'
       v-bind:isHorizontal='true'
       v-model='aws_account.email'
       title='メールアドレス'

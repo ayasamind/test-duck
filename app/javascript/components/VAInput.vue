@@ -12,6 +12,7 @@
         :id="vaId"
         :placeholder="placeholder"
         :value="value"
+        :required="isRequired"
         @blur="sendParams($event.target.value)"
         >
       </input>
@@ -68,6 +69,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    isRequired: {
+      type: Boolean,
+      default: true,
+    }
   },
   methods: {
     sendParams(value) {

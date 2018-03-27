@@ -8,6 +8,7 @@
         class="form-control"
         :disabled="isDisabled"
         :multiple="isMultiple"
+        :required="isRequired"
         @change="sendParams($event.target.value)"
       >
         <option v-if="isEmpty" value=""></option>
@@ -18,7 +19,7 @@
     </div>
   </div>
   <select v-else
-    class="form-control" :disabled="isDisabled" :multiple="isMultiple">
+    class="form-control" :disabled="isDisabled" :multiple="isMultiple" :required="isRequired">
       <option v-if="isEmpty" value=""></option>
     <option v-for="(item,index) in list" :data="item" :key="index">
       {{ item }}
@@ -55,6 +56,10 @@ export default {
     vaId: {
       type: String,
     },
+    isRequired: {
+      type: Boolean,
+      default: true,
+    }
   },
   methods: {
     sendParams(value) {
