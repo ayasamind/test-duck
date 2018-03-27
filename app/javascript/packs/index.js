@@ -1,5 +1,4 @@
 import Vue from 'vue';
-// import App from '../app.vue';
 import store from '../vuex/store';
 import App from '../app.vue';
 // routerの設定

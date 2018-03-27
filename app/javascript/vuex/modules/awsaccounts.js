@@ -1,5 +1,4 @@
 import api from '../../api/awsaccounts';
-import router from '../../packs/router';
 
 const awsaccounts = {
   namespaced: true,
@@ -36,14 +35,15 @@ const awsaccounts = {
       });
     },
     saveAwsAccount({ commit }, data) {
-      return api.createAwsAccount(data).then((accounts) => {
-        commit('setAwsAccount', { accounts });
-        router.push({ name: 'ListAwsAccount' });
+      return api.createAwsAccount(data).then((response) => {
+        commit('setAwsAccount', { response });
+        return response;
       });
     },
     deleteAwsAccount({ commit }, id) {
-      return api.deleteAwsAccount(id).then(() => {
+      return api.deleteAwsAccount(id).then((response) => {
         commit('deleteAwsAccount', { id });
+        return response;
       });
     },
   },

@@ -69,7 +69,8 @@ export default {
   },
   methods: {
     onDelete(id) {
-      this.$store.dispatch('awsaccounts/deleteAwsAccount', id).then(() => {
+      this.$store.dispatch('awsaccounts/deleteAwsAccount', id).then((message) => {
+        this.$store.commit('flash/flash', message);
       });
     },
   },

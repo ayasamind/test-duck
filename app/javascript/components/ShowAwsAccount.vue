@@ -44,9 +44,6 @@
 export default{
   name: 'ShowAwsAccount',
   props: { id: String },
-  computed: {
-    orderAccount() { return this.$store.getters['awsaccounts/orderAccount']; },
-  },
   watch: {
     id: {
       handler() {
@@ -54,6 +51,9 @@ export default{
       },
       immediate: true,
     },
+  },
+  computed: {
+    orderAccount() { return this.$store.getters['awsaccounts/orderAccount']; },
   },
 };
 </script>
