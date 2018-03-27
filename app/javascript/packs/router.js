@@ -20,7 +20,7 @@ const routes = [
         component: List,
       },
       {
-        path: ':id',
+        path: 'aws_account/:id',
         name: 'ShowAwsAccount',
         component: ShowAwsAccount,
         props: true,

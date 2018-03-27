@@ -6995,7 +6995,7 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
 
-uuid@^3.0.0, uuid@^3.0.1, uuid@^3.1.0:
+uuid@^3.0.0, uuid@^3.0.1, uuid@^3.1.0, uuid@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.2.1.tgz#12c528bb9d58d0b9265d9a2f6f0fe8be17ff1f14"
 
@@ -7042,6 +7042,12 @@ vue-eslint-parser@^2.0.1-beta.1:
     espree "^3.5.2"
     esquery "^1.0.0"
     lodash "^4.17.4"
+
+vue-flash-message@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/vue-flash-message/-/vue-flash-message-0.6.0.tgz#a32c4ef842e32d4acefd89c6b9b606021c928543"
+  dependencies:
+    uuid "^3.2.1"
 
 vue-hot-reload-api@^2.2.0:
   version "2.2.4"
@@ -7091,9 +7097,9 @@ vue-template-es2015-compiler@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
 
-vue2-admin-lte@^0.4.3:
+vue2-admin-lte@ayasamind/vue2-admin-lte:
   version "0.4.3"
-  resolved "https://registry.yarnpkg.com/vue2-admin-lte/-/vue2-admin-lte-0.4.3.tgz#8696658628059c1ff625b106087e33b5e3bb177b"
+  resolved "https://codeload.github.com/ayasamind/vue2-admin-lte/tar.gz/bd8abb76fdaabd7d8cb4d96509c17dfb329de75d"
   dependencies:
     admin-lte "^2.3.11"
     axios "^0.15.3"
