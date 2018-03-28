@@ -22,10 +22,6 @@ class AwsAccountsController < ApplicationController
     end
   end
 
-  def update
-
-  end
-
   def destroy
     AwsAccount.find(params[:id]).destroy
     @message = t("messages.notice.deleted", model: t("activerecord.models.aws_account"))

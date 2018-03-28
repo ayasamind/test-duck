@@ -2,63 +2,63 @@
   <form @submit="onSaveAccount">
     <va-input
       type='text'
-      v-bind:isHorizontal='true'
+      :isHorizontal='true'
       v-model='aws_account.account_id'
       title='アカウントID'
       placeholder='アカウントID'
       ></va-input>
     <va-input
       type='email'
-      v-bind:isHorizontal='true'
+      :isHorizontal='true'
       v-model='aws_account.email'
       title='メールアドレス'
       placeholder='メールアドレス'
       ></va-input>
     <va-input
       type='text'
-      v-bind:isHorizontal='true'
+      :isHorizontal='true'
       v-model='aws_account.account_name'
       title='アカウント名'
       placeholder='アカウント名'
       ></va-input>
     <va-input
       type='text'
-      v-bind:isHorizontal='true'
+      :isHorizontal='true'
       v-model='aws_account.display_name'
       title='表示名'
       placeholder='表示名'
       ></va-input>
     <va-select
-      v-bind:isHorizontal='true'
+      :isHorizontal='true'
       title='カテゴリー'
-      v-bind:list='category'
+      :list='category'
       v-model='aws_account.category'
-      v-bind:isEmpty='true'
+      :isEmpty='true'
       ></va-select>
     <va-select
-      v-bind:isHorizontal='true'
+      :isHorizontal='true'
       title='ステータス'
-      v-bind:list='status'
+      :list='status'
       v-model='aws_account.status'
-       v-bind:isEmpty='true'
+       :isEmpty='true'
       ></va-select>
     <va-select
-      v-bind:isHorizontal='true'
+      :isHorizontal='true'
       v-model='aws_account.payer_account_id'
       title='決済アカウントID'
-      v-bind:list='payer_account_id'
-      v-bind:isEmpty='true'
+      :list='payer_account_id'
+      :isEmpty='true'
       ></va-select>
     <va-select
-      v-bind:isHorizontal='true'
+      :isHorizontal='true'
       v-model='aws_account.user_id'
       title='ユーザーID'
-      v-bind:list='user_id'
-      v-bind:isEmpty='true'
+      :list='user_id'
+      :isEmpty='true'
       ></va-select>
     <va-input
       type='text'
-      v-bind:isHorizontal='true'
+      :isHorizontal='true'
       v-model='aws_account.purpose'
       title='目的'
       placeholder='目的'
@@ -108,6 +108,12 @@ export default {
       .catch((e) => {
         this.errors.push(e);
       });
+  },
+  beforeUpdate() {
+    const status = this.$store.getters['awsaccounts/getEditStatus'];
+    if (status === true) {
+      this.aws_account = this.$store.getters['awsaccounts/orderAccount'];
+    }
   },
   components: {
     'va-input': VAInput,

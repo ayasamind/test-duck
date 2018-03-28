@@ -33,7 +33,7 @@
             <td>{{accounts.category}}</td>
             <td>{{accounts.user_id}}</td>
             <td class='row'>
-              <div class='col-md-4'>
+              <div class='col-md-3'>
                 <router-link
                   v-bind:to="{
                     name: 'ShowAwsAccount',
@@ -45,7 +45,19 @@
                   <va-button name="詳細" size='1'></va-button>
                 </router-link>
               </div>
-              <div class='col-md-4'>
+              <div class='col-md-3'>
+                <router-link
+                  v-bind:to="{
+                    name: 'EditAwsAccount',
+                    params: {
+                      id: `${accounts.id}`
+                    }
+                  }
+                ">
+                  <va-button name="編集" size='1'></va-button>
+                </router-link>
+              </div>
+              <div class='col-md-3'>
                 <va-button v-on:click.native.prevent="onDelete(accounts.id)" name='削除' ></va-button>
               </div>
             </td>

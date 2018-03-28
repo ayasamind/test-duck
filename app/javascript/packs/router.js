@@ -5,6 +5,7 @@ import AwsAccounts from '../components/AwsAccounts.vue';
 import List from '../components/List.vue';
 import CreateAwsAccounts from '../components/CreateAwsAccounts.vue';
 import ShowAwsAccount from '../components/ShowAwsAccount.vue';
+import EditAwsAccount from '../components/EditAwsAccount.vue';
 import store from '../vuex/store';
 
 
@@ -20,9 +21,15 @@ const routes = [
         component: List,
       },
       {
-        path: 'aws_account/:id',
+        path: 'aws_account/show/:id',
         name: 'ShowAwsAccount',
         component: ShowAwsAccount,
+        props: true,
+      },
+      {
+        path: 'aws_account/edit/:id',
+        name: 'EditAwsAccount',
+        component: EditAwsAccount,
         props: true,
       },
       {

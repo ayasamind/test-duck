@@ -37,6 +37,7 @@ export default {
   },
   beforeRouteUpdate(to, from, next) {
     this.$store.commit('flash/end');
+    this.$store.commit('awsaccounts/changeEditStatus');
     next();
   }
 };

@@ -5,10 +5,12 @@ const awsaccounts = {
   state: {
     accounts: [],
     account: [],
+    edit: false,
   },
   getters: {
     orderList: state => state.accounts,
     orderAccount: state => state.account,
+    getEditStatus: state => state.edit,
   },
   mutations: {
     // アカウントリストをセット
@@ -17,10 +19,14 @@ const awsaccounts = {
     },
     setAwsAccount(state, { account }) {
       state.account = account;
+      state.edit = true;
     },
     deleteAwsAccount(state, { id }) {
       state.accounts = state.accounts.filter(el => el.id !== id);
     },
+    changeEditStatus(state) {
+      state.edit = false;
+    }
   },
   actions: {
     // アカウントを読み込む
