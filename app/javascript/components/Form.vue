@@ -85,7 +85,6 @@ select.form-control{
 import axios from 'axios';
 import VAInput from './VAInput.vue';
 import VASelect from './VASelect.vue';
-import router from '../packs/router';
 
 export default {
   name: 'Form',
@@ -121,14 +120,7 @@ export default {
   },
   methods: {
     onSaveAccount() {
-      this.$store.dispatch('awsaccounts/saveAwsAccount', this.aws_account).then((response) => {
-        if (response.status === 'error') {
-          this.$store.commit('flash/flash', response);
-        } else {
-          router.push({ name: 'ListAwsAccount' });
-          this.$store.commit('flash/flash', response);
-        }
-      });
+      this.$store.dispatch('awsaccounts/saveAwsAccount', this.aws_account);
     },
     createOptions(object) {
       const data = {};

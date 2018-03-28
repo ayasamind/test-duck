@@ -1,4 +1,5 @@
 import api from '../../api/awsaccounts';
+import router from '../../packs/router';
 
 const awsaccounts = {
   namespaced: true,
@@ -42,14 +43,24 @@ const awsaccounts = {
     },
     saveAwsAccount({ commit }, data) {
       return api.createAwsAccount(data).then((response) => {
-        commit('setAwsAccount', { response });
-        return response;
+        //  リクエスト成功
+        if (response.status === 'error') {
+          //  保存失敗
+          commit('flash/flash', response, { root: true });
+        } else {
+          //  保存成功
+          router.push({ name: 'ListAwsAccount' });
+          commit('flash/flash', response, { root: true });
+        }
+      }).catch((response) => {
+        //  リクエスト失敗
+        console.log(response);
       });
     },
     deleteAwsAccount({ commit }, id) {
       return api.deleteAwsAccount(id).then((response) => {
         commit('deleteAwsAccount', { id });
-        return response;
+        commit('flash/flash', response, { root: true });
       });
     },
   },
