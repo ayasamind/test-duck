@@ -6995,7 +6995,7 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
 
-uuid@^3.0.0, uuid@^3.0.1, uuid@^3.1.0, uuid@^3.2.1:
+uuid@^3.0.0, uuid@^3.0.1, uuid@^3.1.0:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.2.1.tgz#12c528bb9d58d0b9265d9a2f6f0fe8be17ff1f14"
 
@@ -7042,12 +7042,6 @@ vue-eslint-parser@^2.0.1-beta.1:
     espree "^3.5.2"
     esquery "^1.0.0"
     lodash "^4.17.4"
-
-vue-flash-message@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/vue-flash-message/-/vue-flash-message-0.6.0.tgz#a32c4ef842e32d4acefd89c6b9b606021c928543"
-  dependencies:
-    uuid "^3.2.1"
 
 vue-hot-reload-api@^2.2.0:
   version "2.2.4"
