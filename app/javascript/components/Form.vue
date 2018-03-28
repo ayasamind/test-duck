@@ -2,60 +2,64 @@
   <form @submit="onSaveAccount">
     <va-input
       type='text'
-      v-bind:isHorizontal='true'
-      v-model='data.account_id'
+      :isHorizontal='true'
+      v-model='aws_account.account_id'
       title='アカウントID'
       placeholder='アカウントID'
       ></va-input>
     <va-input
-      type='text'
-      v-bind:isHorizontal='true'
-      v-model='data.email'
+      type='email'
+      :isHorizontal='true'
+      v-model='aws_account.email'
       title='メールアドレス'
       placeholder='メールアドレス'
       ></va-input>
     <va-input
       type='text'
-      v-bind:isHorizontal='true'
-      v-model='data.account_name'
+      :isHorizontal='true'
+      v-model='aws_account.account_name'
       title='アカウント名'
       placeholder='アカウント名'
       ></va-input>
     <va-input
       type='text'
-      v-bind:isHorizontal='true'
-      v-model='data.display_name'
+      :isHorizontal='true'
+      v-model='aws_account.display_name'
       title='表示名'
       placeholder='表示名'
       ></va-input>
     <va-select
-      v-bind:isHorizontal='true'
-      v-model='data.category'
+      :isHorizontal='true'
       title='カテゴリー'
-      v-bind:list='categories'
+      :list='category'
+      v-model='aws_account.category'
+      :isEmpty='true'
       ></va-select>
     <va-select
-      v-bind:isHorizontal='true'
-      v-model='data.status'
+      :isHorizontal='true'
       title='ステータス'
-      v-bind:list='status'
+      :list='status'
+      v-model='aws_account.status'
+       :isEmpty='true'
       ></va-select>
     <va-select
-      v-bind:isHorizontal='true'
-      v-model='data.payer_account_id'
+      :isHorizontal='true'
+      v-model='aws_account.payer_account_id'
       title='決済アカウントID'
-      v-bind:list='payer_account_id'
+      :list='payer_account_id'
+      :isEmpty='true'
       ></va-select>
     <va-select
-      v-bind:isHorizontal='true'
-      v-model='data.user_id'
+      :isHorizontal='true'
+      v-model='aws_account.user_id'
       title='ユーザーID'
-      v-bind:list='user_id'
+      :list='user_id'
+      :isEmpty='true'
       ></va-select>
     <va-input
       type='text'
-      v-bind:isHorizontal='true'
-      v-model='data.purpose'
+      :isHorizontal='true'
+      v-model='aws_account.purpose'
       title='目的'
       placeholder='目的'
       ></va-input>
@@ -67,9 +71,9 @@
   </form>
 </template>
 
-<style>
-input.form-control{
-  margin:5px;
+<style scoped>
+input.form-control {
+  margin-bottom:20px;
 }
 
 select.form-control{
@@ -78,30 +82,50 @@ select.form-control{
 
 </style>
 <script>
-import VAInput from 'vue2-admin-lte/src/components/VAInput.vue';
-import VASelect from 'vue2-admin-lte/src/components/VASelect.vue';
+import axios from 'axios';
+import VAInput from './VAInput.vue';
+import VASelect from './VASelect.vue';
 
 export default {
   name: 'Form',
   data() {
     return {
-      data: [],
-      categories: ['a', 'b'],
-      status: ['sample1', 'sample2'],
-      payer_account_id: [1, 2, 3],
-      user_id: ['sample1', 'sample2', 'sample3'],
+      aws_account: {},
+      payer_account_id: { 1: '1', 2: '2', 3: '3' },
+      user_id: { 1: '1', 2: '2', 3: '3' },
+      category: {},
+      status: {},
     };
+  },
+  created() {
+    axios.get('aws_accounts/send_params')
+      .then((response) => {
+        // optionのデータ整形
+        this.category = this.createOptions(response.data.categories);
+        this.status = this.createOptions(response.data.statuses);
+      })
+      .catch((e) => {
+        this.errors.push(e);
+      });
   },
   components: {
     'va-input': VAInput,
     'va-select': VASelect,
   },
   methods: {
-    // 保存ボタン＆サブミットで内部データをストアに送る
     onSaveAccount() {
-      this.$store.dispatch('awsaccounts/saveAwsAccount', this.data).then(() => {
-      });
+      this.$store.dispatch('awsaccounts/saveAwsAccount', this.aws_account);
     },
+    createOptions(object) {
+      const data = {};
+      const value = object.value;
+      const option = object.option;
+      const length = Object.values(option).length;
+      for (let i = 0; i < length; i += 1) {
+        data[Object.values(value)[i]] = Object.values(option)[i];
+      }
+      return data;
+    }
   },
 };
 </script>

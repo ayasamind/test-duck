@@ -36,14 +36,25 @@ const awsaccounts = {
       });
     },
     saveAwsAccount({ commit }, data) {
-      return api.createAwsAccount(data).then((accounts) => {
-        commit('setAwsAccount', { accounts });
-        router.push({ name: 'ListAwsAccount' });
+      return api.createAwsAccount(data).then((response) => {
+        //  リクエスト成功
+        if (response.status === 'error') {
+          //  保存失敗
+          commit('flash/flash', response, { root: true });
+        } else {
+          //  保存成功
+          router.push({ name: 'ListAwsAccount' });
+          commit('flash/flash', response, { root: true });
+        }
+      }).catch((response) => {
+        //  リクエスト失敗
+        console.log(response);
       });
     },
     deleteAwsAccount({ commit }, id) {
-      return api.deleteAwsAccount(id).then(() => {
+      return api.deleteAwsAccount(id).then((response) => {
         commit('deleteAwsAccount', { id });
+        commit('flash/flash', response, { root: true });
       });
     },
   },

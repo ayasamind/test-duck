@@ -5,7 +5,7 @@ const apiSuccess = (response) => {
   if (response.data) {
     return response.data;
   }
-  return Promise.reject(response);
+  return response;
 };
 
 // 通信失敗の処理
@@ -29,8 +29,8 @@ export default {
     axios.get('aws_accounts/get_accounts').then(apiSuccess).catch(apiError),
   getAwsAccount: id =>
     axios.get(`aws_accounts/${id}`, { id }).then(apiSuccess).catch(apiError),
-  createAwsAccount: (item, params = {}) =>
-    axios.get('aws_accounts/new', { item: JSON.stringify({ item }), params: setToken(params) }).then(apiSuccess).catch(apiError),
+  createAwsAccount: (aws_account, params = {}) =>
+    axios.post('aws_accounts', { aws_account, params: setToken(params) }).then(apiSuccess),
   deleteAwsAccount: (id, params = {}) =>
     axios.delete(`aws_accounts/${id}`, { id, params: setToken(params) }).then(apiSuccess).catch(apiError),
 };
