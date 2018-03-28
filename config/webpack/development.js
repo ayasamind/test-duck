@@ -1,5 +1,7 @@
 const environment = require('./environment')
 
+
+
 environment.loaders.set('eslint', {
   test: /\.(js|vue)$/,
   loader: 'eslint-loader',
@@ -9,4 +11,6 @@ environment.loaders.set('eslint', {
   }
 })
 
-module.exports = environment.toWebpackConfig()
+const config = environment.toWebpackConfig()
+config.devtool = 'sourcemap'
+module.exports = config

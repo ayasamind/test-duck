@@ -7099,7 +7099,7 @@ vue-template-es2015-compiler@^1.6.0:
 
 vue2-admin-lte@ayasamind/vue2-admin-lte:
   version "0.4.3"
-  resolved "https://codeload.github.com/ayasamind/vue2-admin-lte/tar.gz/bd8abb76fdaabd7d8cb4d96509c17dfb329de75d"
+  resolved "https://codeload.github.com/ayasamind/vue2-admin-lte/tar.gz/5f48a7ff7c792204ddcfccf7c359ae4b164dc824"
   dependencies:
     admin-lte "^2.3.11"
     axios "^0.15.3"
