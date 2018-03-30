@@ -3,11 +3,11 @@ json.extract! @aws_account,
     :email,    
     :account_name, 
     :display_name,
-    :category,
+    :category_i18n,
     :payer_account_id,
     :user_id,
     :purpose,
     :deleted_at,
     :created_at,
     :updated_at,
-    :status    
+    :status_i18n    
