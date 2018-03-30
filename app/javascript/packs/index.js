@@ -4,27 +4,17 @@ import App from '../app.vue';
 // routerの設定
 import router from './router';
 
-document.addEventListener('DOMContentLoaded', () => {
-  const el = document.body.appendChild(document.createElement('index'));
-  if (process.env.NODE_ENV !== 'production') {
-    setTimeout(() => {
-      /* eslint-disable no-unused-vars */
-      const app = new Vue({
-        store,
-        el,
-        router,
-        render: h => h(App),
-      });
-      /* eslint-disable no-unused-vars */
-    }, 500);
-  } else {
-    /* eslint-disable no-unused-vars */
-    const app = new Vue({
-      store,
-      el,
-      router,
-      render: h => h(App),
-    });
-    /* eslint-disable no-unused-vars */
-  }
+/* eslint-disable no-unused-vars */
+const el = document.body.appendChild(document.createElement('header'));
+const app = new Vue({
+  store,
+  router,
+  el,
+  ...App,
 });
+/* eslint-disable no-unused-vars */
+if (process.env.NODE_ENV !== 'production') {
+  setTimeout(() => { app.$mount('#app'); }, 500);
+} else {
+  app.$mount('#app');
+}

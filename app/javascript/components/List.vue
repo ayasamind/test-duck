@@ -30,7 +30,7 @@
           <tr v-bind:key='accounts.id' v-for='accounts in orderList'>
             <td>{{accounts.account_id}}</td>
             <td>{{accounts.display_name}}</td>
-            <td>{{accounts.category}}</td>
+            <td>{{accounts.category_i18n}}</td>
             <td>{{accounts.user_id}}</td>
             <td class='row'>
               <div class='col-md-3'>

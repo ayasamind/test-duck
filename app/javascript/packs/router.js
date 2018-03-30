@@ -48,7 +48,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.name !== 'ShowAwsAccount') store.commit('view/start');
+  store.commit('view/start');
   next();
 });
 

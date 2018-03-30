@@ -11,7 +11,7 @@
           <strong>アカウント名</strong>
             <p class='text-muted'>{{orderAccount.account_name}}</p>
           <strong>カテゴリー</strong>
-            <p class='text-muted'>{{orderAccount.category}}</p>
+            <p class='text-muted'>{{orderAccount.category_i18n}}</p>
           <strong>作成日</strong>
             <p class='text-muted'>{{orderAccount.created_at}}</p>
           <strong>削除日</strong>
@@ -25,7 +25,7 @@
           <strong>目的</strong>
             <p class='text-muted'>{{orderAccount.purpose}}</p>
           <strong>ステータス</strong>
-            <p class='text-muted'>{{orderAccount.status}}</p>
+            <p class='text-muted'>{{orderAccount.status_i18n}}</p>
           <strong>更新日</strong>
             <p class='text-muted'>{{orderAccount.updated_at}}</p>
           <strong>ユーザーID</strong>
@@ -35,11 +35,7 @@
     </div>
   </div>
 </template>
-<style>
-.box-body {
-  margin-top: 10px;
-}
-</style>
+
 <script>
 export default{
   name: 'ShowAwsAccount',
@@ -57,3 +53,9 @@ export default{
   },
 };
 </script>
+
+<style>
+.box-body {
+  margin-top: 10px;
+}
+</style>
