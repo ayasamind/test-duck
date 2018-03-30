@@ -67,6 +67,9 @@ group :development do
   gem 'pry-rails'
   gem 'pry-stack_explorer'
   gem 'better_errors'
+
+  gem "ruby-debug-ide"
+  gem "debase"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
