@@ -29,8 +29,12 @@ export default {
     axios.get('aws_accounts/get_accounts').then(apiSuccess).catch(apiError),
   getAwsAccount: id =>
     axios.get(`aws_accounts/${id}`, { id }).then(apiSuccess).catch(apiError),
+  editAwsAccount: id =>
+    axios.get(`aws_accounts/${id}/edit`, { id }).then(apiSuccess).catch(apiError),
   createAwsAccount: (aws_account, params = {}) =>
     axios.post('aws_accounts', { aws_account, params: setToken(params) }).then(apiSuccess),
+  updateAwsAccount: (aws_account, params = {}) =>
+    axios.put(`aws_accounts/${aws_account.id}`, { aws_account, params: setToken(params) }).then(apiSuccess).catch(apiError),
   deleteAwsAccount: (id, params = {}) =>
     axios.delete(`aws_accounts/${id}`, { id, params: setToken(params) }).then(apiSuccess).catch(apiError),
 };

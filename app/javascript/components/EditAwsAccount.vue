@@ -17,7 +17,7 @@ export default {
   watch: {
     id: {
       handler() {
-        this.$store.dispatch('awsaccounts/getAwsAccount', this.id);
+        this.$store.dispatch('awsaccounts/editAwsAccount', this.id);
       },
       immediate: true,
     },

@@ -1,13 +1,3 @@
-json.extract! @aws_account, 
-    :account_id,
-    :email,    
-    :account_name, 
-    :display_name,
-    :category,
-    :payer_account_id,
-    :user_id,
-    :purpose,
-    :deleted_at,
-    :created_at,
-    :updated_at,
-    :status
+json.message @message
+json.status @status
+json.error_message @error_message

@@ -9,6 +9,7 @@
         :disabled="isDisabled"
         :multiple="isMultiple"
         :required="isRequired"
+        :value="value"
         @change="sendParams($event.target.value)"
       >
         <option v-if="isEmpty" value=""></option>
@@ -59,11 +60,14 @@ export default {
     isRequired: {
       type: Boolean,
       default: true,
-    }
+    },
+    value: {
+
+    },
   },
   methods: {
     sendParams(value) {
-      this.$emit('input', Number(value));
+      this.$emit('input', value);
     },
   },
   created() {

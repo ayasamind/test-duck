@@ -47,8 +47,31 @@ const awsaccounts = {
         if (response.status === 'error') {
           //  保存失敗
           commit('flash/flash', response, { root: true });
+          commit('error/setError', response, { root: true });
         } else {
-          //  保存成功
+        //  保存成功
+          router.push({ name: 'ListAwsAccount' });
+          commit('flash/flash', response, { root: true });
+        }
+      }).catch((response) => {
+        //  リクエスト失敗
+        console.log(response);
+      });
+    },
+    editAwsAccount({ commit }, id) {
+      return api.editAwsAccount(id).then((account) => {
+        commit('setAwsAccount', { account });
+      });
+    },
+    updateAwsAccount({ commit }, data) {
+      return api.updateAwsAccount(data).then((response) => {
+        //  リクエスト成功
+        if (response.status === 'error') {
+          //  保存失敗
+          commit('flash/flash', response, { root: true });
+          commit('error/setError', response, { root: true });
+        } else {
+        //  保存成功
           router.push({ name: 'ListAwsAccount' });
           commit('flash/flash', response, { root: true });
         }
