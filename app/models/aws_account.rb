@@ -12,9 +12,13 @@ class AwsAccount < ApplicationRecord
 
   #----------------------------------------------------------------------------
   # validation
+
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :account_id,  presence: true
-  validates :email, presence: true
-  validates :account_name, presence: true
+  validates :email, presence: true, 
+    length: { minimum: 6, maximum: 64},
+    format: { with: VALID_EMAIL_REGEX }
+  validates :account_name, presence: true, length: { minimum: 1, maximum: 50}
   validates :display_name, presence: true
   validates :category, presence: true
   validates :payer_account_id, presence: true
